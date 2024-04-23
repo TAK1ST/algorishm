@@ -28,7 +28,7 @@ int main() {
         printf("Enter your choice: \n \
         ==> ");
         scanf("%d", &choice);
-        
+        if (choice <= 100) {
         switch (choice) {
             case 1:
                 displayServices();
@@ -53,8 +53,9 @@ int main() {
                 exit(5);
                 break;
             default:
-                printf("Invalid choice.\n");
+                printf("|    Invalid choice   |\n");
         }
-    }
+    } else printf("Error!!! --> Exit the program");
     return 0;
+    } 
 }
