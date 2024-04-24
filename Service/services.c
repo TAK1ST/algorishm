@@ -1,11 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "services.h"
 
 int main() {
 
-    int numLoaded = loadServicesFromFile("E:\\Desktop\\HOTEL-MANAGER\\Service\\service.txt");
+    int numLoaded = loadServicesFromFile("E:\\Code\\HOTEL-MANAGER\\Service\\service.txt");
     if (numLoaded == -1) {
         printf("Error loading services from file.\n");
     } else {
@@ -28,7 +25,6 @@ int main() {
         printf("Enter your choice: \n \
         ==> ");
         scanf("%d", &choice);
-        if (choice <= 100) {
         switch (choice) {
             case 1:
                 displayServices();
@@ -44,7 +40,7 @@ int main() {
                 break;
             case 5:
                 printf("\n| Exiting the program... |\n");
-                int saveResult = saveServicesToFile("E:\\Desktop\\HOTEL-MANAGER\\Service\\service.txt");
+                int saveResult = saveServicesToFile("E:\\Code\\HOTEL-MANAGER\\Service\\service.txt");
                 if (saveResult == -1) {
                     printf("Error saving services to file.\n");
                 } else {
@@ -55,7 +51,5 @@ int main() {
             default:
                 printf("|    Invalid choice   |\n");
         }
-    } else printf("Error!!! --> Exit the program");
-    return 0;
     } 
 }
