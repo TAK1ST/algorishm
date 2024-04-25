@@ -1,11 +1,4 @@
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
-
-#define MAX_SERVICES 100
-#define MAX_NAME_LENGTH 50
+#include "service(brief).h"
 
 typedef struct Service {
     char name[MAX_NAME_LENGTH];
@@ -14,24 +7,6 @@ typedef struct Service {
 
 Service services[MAX_SERVICES];
 int numServices = 0; // Number of services currently stored
-
-// Function to load services from a file
-// int loadServicesFromFile(const char* filename) {
-//     FILE* file = fopen(filename, "r");
-//     if (file == NULL) {
-//         printf("Error opening file for reading: %s\n", filename);
-//         return -1;
-//     }
-
-//     int initialNumServices = numServices;
-
-//     while (numServices < MAX_SERVICES && fscanf(file, "%49s%f", services[numServices].name, &services[numServices].price) == 2) {
-//         numServices++;
-//     }
-
-//     fclose(file);
-//     return numServices - initialNumServices;
-// }
 
 // Function to load services from a file
 int loadServicesFromFile(const char* filename) {
@@ -140,6 +115,7 @@ void addService() {
     capitalize_first_letter(services[numServices].name);
     numServices++;
     printf("|  Added new service successfully!  |\n");
+    saveServicesToFile("E:\\Code\\HOTEL-MANAGER\\Service\\service.txt");
 }
 
 // Function to edit service information
@@ -173,6 +149,8 @@ void editService() {
     }
 
     printf("Edited service information successfully!\n");
+    saveServicesToFile("E:\\Code\\HOTEL-MANAGER\\Service\\service.txt");
+
 }
 
 // Function to delete a service
@@ -200,4 +178,5 @@ void deleteService() {
 
     numServices--;
     printf("Service deletion successful!\n");
+    saveServicesToFile("E:\\Code\\HOTEL-MANAGER\\Service\\service.txt");
 }
